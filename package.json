@@ -1,10 +1,24 @@
 {
-  "name": "nuxt-app",
-  "private": true,
+  "name": "tjs-utils",
+  "private": false,
+  "description": "Utils for JavaScript and TypeScript",
+  "type": "module",
+  "version": "1.0.4",
+  "main": "./dist/index.js",
+  "keywords": [],
+  "author": "ZhulinskiiDanil",
+  "license": "ISC",
   "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
     "format": "prettier --write './**/*.{js,jsx,ts,tsx,vue,css,scss,md,json}' --config ./.prettierrc"
   },
   "devDependencies": {
-    "prettier": "^3.2.5"
+    "prettier": "^3.2.5",
+    "tjs-utils": "^1.0.4",
+    "typescript": "^5.4.2",
+    "vite": "^5.1.6",
+    "vite-plugin-dts": "^3.7.3"
   }
 }

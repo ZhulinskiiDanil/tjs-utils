@@ -1,0 +1,33 @@
+# Nuxt dev/build outputs
+.histoire
+.output
+.nuxt
+.nitro
+.cache
+
+# Node dependencies
+node_modules
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+# tests
+/coverage
+
+# dev files
+/src
+.prettierrc
+tsconfig.json
+vite.config.js
+.gitignore
