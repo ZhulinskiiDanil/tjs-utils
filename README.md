@@ -13,6 +13,9 @@
   - [`isObject`](#isobject)
 - [Shared](#shared)
   - [`excludeFields`](#excludefields)
+  - [`uuid`](#uuid)
+  - [`isLink`](#islink)
+  - [`youTubeLinkWithEmbed`](#youtubelinkwithembed)
 
 # Browser
 
@@ -103,4 +106,27 @@ utils.object.excludeFields({
 utils.object.excludeFields({
   foo: 1, bar: 2, baz: 3
 }, ['foo', 'bar']) // { baz: 3 }
+```
+
+## `uuid`
+
+```js
+utils.shared.uuid() // Will return unique id
+```
+
+## `isLink`
+
+```js
+utils.shared.isLink("http://example.com") // true
+utils.shared.isLink("https://example.com") // true
+
+utils.shared.isLink("htt://example.com") // false
+utils.shared.isLink("https://examplecom") // false
+utils.shared.isLink("https:/example.com") // false
+```
+
+## `youTubeLinkWithEmbed`
+
+```js
+utils.shared.youTubeLinkWithEmbed("videoId") // https://www.youtube.com/embed/${videoId}?si=MwpzP3N4aPMNGFri
 ```
