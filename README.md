@@ -4,7 +4,10 @@
 - [Browser](#browser)
     - [`getLastURLSegment`](#getlasturlsegment)
 - [Date](#date)
-    - [`getPastDate`](#getpastdate)
+    - [`getDateTimeFormat`](#getdatetimeformat)
+    - [`getDefaultDate`](#getdefaultdate)
+    - [`getRelativeTimeString`](#getrelativetimestring)
+    - [`getTimeFormatUnitByTimestamp`](#gettimeformatunitbytimestamp)
 - [Memory](#memory)
   - [`humanFileSize`](#humanfilesize)
 - [File](#file)
@@ -29,7 +32,31 @@ utils.browser.getLastURLSegment(
 
 # Date
 
-### `getPastDate`
+### `getDateTimeFormat`
+
+```js
+getDateTimeFormat('ru', `2024-03-19T03:10:44.339Z`) // 19 марта 2024 г. в 04:10
+getDateTimeFormat('en', `2024-03-19T03:10:44.339Z`) // March 19, 2024 at 4:10 AM
+
+// options?: Intl.DateTimeFormatOptions
+getDateTimeFormat('en', `2024-03-19T03:10:44.339Z`, { // Tuesday, March 19, 2024 at 4:10 AM
+  dateStyle: 'full'
+})
+```
+
+### `getDefaultDate`
+
+```js
+getDefaultDate('ru', `2024-03-19T03:10:44.339Z`) // 19.03.2024 04:10
+getDefaultDate('en', `2024-03-19T03:10:44.339Z`) // 3/19/2024 4:10 AM
+
+// options?: Intl.DateTimeFormatOptions
+getDefaultDate('ru', `2024-03-19T03:10:44.339Z`, { // 19.03.2024 04:10 AM
+  hour12: true
+})
+```
+
+### `getRelativeTimeString`
 
 ```js
 const date = new Date();
@@ -38,16 +65,25 @@ const date = new Date();
 ```js
 date.setDate(date.getDate() - 1);
 
-utils.date.getPastDate(date); // yesterday
-utils.date.getPastDate(date, { locale: 'ru' }); // Вчера
+utils.date.getRelativeTimeString('en', date); // yesterday
+utils.date.getRelativeTimeString('ru', date); // Вчера
 ```
 
 ```js
 date.setDate(date.getDate() - 3);
 
-utils.date.getPastDate(date); // 3 days ago
-utils.date.getPastDate(date, 'hours'); // 12.12.1234 1:23
-utils.date.getPastDate(date, null, { locale: 'ru' }); // 3 дня назад
+utils.date.getRelativeTimeString('en', date); // 3 days ago
+utils.date.getRelativeTimeString('ru', date); // 3 дня назад
+```
+
+### `getTimeFormatUnitByTimestamp`
+
+```js
+utils.date.getTimeFormatUnitByTimestamp(0); // second (because second is minimum value)
+utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60); // hour
+utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60 * 24); // day
+utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60 * 24 * 7); // week
+utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60 * 24 * 365); // year
 ```
 
 # Memory
