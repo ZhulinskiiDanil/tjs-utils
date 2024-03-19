@@ -2,13 +2,17 @@
 
 - [Links](#links)
 - [Browser](#browser)
-  - [`getLastURLSegment`](#getlasturlsegment)
+    - [`getLastURLSegment`](#getlasturlsegment)
 - [Date](#date)
-  - [`getRelativeDate`](#getrelativedate)
+    - [`getRelativeDate`](#getrelativedate)
 - [Memory](#memory)
   - [`humanFileSize`](#humanfilesize)
 - [File](#file)
   - [`getBase64`](#getbase64)
+- [Object](#object)
+  - [`isObject`](#isobject)
+- [Shared](#shared)
+  - [`excludeFields`](#excludefields)
 
 # Browser
 
@@ -57,4 +61,46 @@ utils.memory.humanFileSize(2 ** 32); // '4.0 GiB'
 
 ```js
 utils.file.getBase64(file); // Promise<string | ArrayBuffer | null>
+```
+
+# Object
+
+## `isObject`
+
+```js
+utils.object.isObject({}); // true
+utils.object.isObject([]); // false
+utils.object.isObject(function() {}); // false
+```
+
+# Shared
+
+## `excludeFields`
+
+```js
+// { baz: [{ bar: true, baz: [] }, { bar: true, baz: [] }] }
+utils.object.excludeFields({
+  foo: true,
+  baz: [
+    {
+      foo: true,
+      bar: false,
+      baz: []
+    },
+    {
+      foo: true,
+      bar: false,
+      baz: []
+    },
+  ]
+}, 'foo')
+
+// Alose you can use that method like this
+utils.object.excludeFields({
+  foo: 1, bar: 2, baz: 3
+}, 'foo', 'bar') // { baz: 3 }
+
+utils.object.excludeFields({
+  foo: 1, bar: 2, baz: 3
+}, ['foo', 'bar']) // { baz: 3 }
 ```
