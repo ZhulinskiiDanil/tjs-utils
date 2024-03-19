@@ -4,7 +4,7 @@
 - [Browser](#browser)
     - [`getLastURLSegment`](#getlasturlsegment)
 - [Date](#date)
-    - [`getRelativeDate`](#getrelativedate)
+    - [`getPastDate`](#getpastdate)
 - [Memory](#memory)
   - [`humanFileSize`](#humanfilesize)
 - [File](#file)
@@ -29,7 +29,7 @@ utils.browser.getLastURLSegment(
 
 # Date
 
-### `getRelativeDate`
+### `getPastDate`
 
 ```js
 const date = new Date();
@@ -38,16 +38,16 @@ const date = new Date();
 ```js
 date.setDate(date.getDate() - 1);
 
-utils.date.getRelativeDate(date); // yesterday
-utils.date.getRelativeDate(date, { locale: 'ru' }); // Вчера
+utils.date.getPastDate(date); // yesterday
+utils.date.getPastDate(date, { locale: 'ru' }); // Вчера
 ```
 
 ```js
 date.setDate(date.getDate() - 3);
 
-utils.date.getRelativeDate(date); // 3 days ago
-utils.date.getRelativeDate(date, 'hours'); // 12.12.1234 1:23
-utils.date.getRelativeDate(date, null, { locale: 'ru' }); // 3 дня назад
+utils.date.getPastDate(date); // 3 days ago
+utils.date.getPastDate(date, 'hours'); // 12.12.1234 1:23
+utils.date.getPastDate(date, null, { locale: 'ru' }); // 3 дня назад
 ```
 
 # Memory

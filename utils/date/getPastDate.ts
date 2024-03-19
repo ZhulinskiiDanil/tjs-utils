@@ -17,7 +17,7 @@ const intlUnits: Record<Intl.RelativeTimeFormatUnit, number> = {
   years: 16
 };
 
-export function getRelativeDate(
+export function getPastDate(
   at: string,
   untilUnit?: Intl.RelativeTimeFormatUnit | null | undefined,
   intlParameters?: {
