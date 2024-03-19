@@ -1,28 +1,58 @@
 # Links
 
 - [Links](#links)
-- [Browser](#browser)
-    - [`getLastURLSegment`](#getlasturlsegment)
-- [Date](#date)
-    - [`getDateTimeFormat`](#getdatetimeformat)
-    - [`getDefaultDate`](#getdefaultdate)
-    - [`getRelativeTimeString`](#getrelativetimestring)
-    - [`getTimeFormatUnitByTimestamp`](#gettimeformatunitbytimestamp)
-- [Memory](#memory)
-  - [`humanFileSize`](#humanfilesize)
-- [File](#file)
-  - [`getBase64`](#getbase64)
-- [Object](#object)
-  - [`isObject`](#isobject)
-- [Shared](#shared)
-  - [`excludeFields`](#excludefields)
-  - [`uuid`](#uuid)
-  - [`isLink`](#islink)
-  - [`youTubeLinkWithEmbed`](#youtubelinkwithembed)
+  - [Installing](#installing)
+    - [Package manager](#package-manager)
+  - [browser](#browser)
+      - [`getLastURLSegment`](#getlasturlsegment)
+  - [date](#date)
+      - [`getDateTimeFormat`](#getdatetimeformat)
+      - [`getDefaultDate`](#getdefaultdate)
+      - [`getRelativeTimeString`](#getrelativetimestring)
+      - [`getTimeFormatUnitByTimestamp`](#gettimeformatunitbytimestamp)
+  - [memory](#memory)
+      - [`humanFileSize`](#humanfilesize)
+  - [file](#file)
+      - [`getBase64`](#getbase64)
+  - [object](#object)
+      - [`isObject`](#isobject)
+  - [shared](#shared)
+      - [`excludeFields`](#excludefields)
+      - [`uuid`](#uuid)
+      - [`isLink`](#islink)
+      - [`youTubeLinkWithEmbed`](#youtubelinkwithembed)
 
-# Browser
+## Installing
 
-### `getLastURLSegment`
+### Package manager
+
+Using npm:
+
+```bash
+$ npm install tjs-utils
+```
+
+Using bower:
+
+```bash
+$ bower install tjs-utils
+```
+
+Using yarn:
+
+```bash
+$ yarn add tjs-utils
+```
+
+Using pnpm:
+
+```bash
+$ pnpm add tjs-utils
+```
+
+## browser
+
+#### `getLastURLSegment`
 
 ```js
 utils.browser.getLastURLSegment(
@@ -30,9 +60,9 @@ utils.browser.getLastURLSegment(
 ); // "123"
 ```
 
-# Date
+## date
 
-### `getDateTimeFormat`
+#### `getDateTimeFormat`
 
 ```js
 getDateTimeFormat('ru', `2024-03-19T03:10:44.339Z`) // 19 марта 2024 г. в 04:10
@@ -44,7 +74,7 @@ getDateTimeFormat('en', `2024-03-19T03:10:44.339Z`, { // Tuesday, March 19, 2024
 })
 ```
 
-### `getDefaultDate`
+#### `getDefaultDate`
 
 ```js
 getDefaultDate('ru', `2024-03-19T03:10:44.339Z`) // 19.03.2024 04:10
@@ -56,7 +86,7 @@ getDefaultDate('ru', `2024-03-19T03:10:44.339Z`, { // 19.03.2024 04:10 AM
 })
 ```
 
-### `getRelativeTimeString`
+#### `getRelativeTimeString`
 
 ```js
 const date = new Date();
@@ -76,7 +106,7 @@ utils.date.getRelativeTimeString('en', date); // 3 days ago
 utils.date.getRelativeTimeString('ru', date); // 3 дня назад
 ```
 
-### `getTimeFormatUnitByTimestamp`
+#### `getTimeFormatUnitByTimestamp`
 
 ```js
 utils.date.getTimeFormatUnitByTimestamp(0); // second (because second is minimum value)
@@ -86,25 +116,25 @@ utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60 * 24 * 7); // week
 utils.date.getTimeFormatUnitByTimestamp(1000 * 60 * 60 * 24 * 365); // year
 ```
 
-# Memory
+## memory
 
-## `humanFileSize`
+#### `humanFileSize`
 
 ```js
 utils.memory.humanFileSize(2 ** 32); // '4.0 GiB'
 ```
 
-# File
+## file
 
-## `getBase64`
+#### `getBase64`
 
 ```js
 utils.file.getBase64(file); // Promise<string | ArrayBuffer | null>
 ```
 
-# Object
+## object
 
-## `isObject`
+#### `isObject`
 
 ```js
 utils.object.isObject({}); // true
@@ -112,9 +142,9 @@ utils.object.isObject([]); // false
 utils.object.isObject(function() {}); // false
 ```
 
-# Shared
+## shared
 
-## `excludeFields`
+#### `excludeFields`
 
 ```js
 // { baz: [{ bar: true, baz: [] }, { bar: true, baz: [] }] }
@@ -144,13 +174,13 @@ utils.object.excludeFields({
 }, ['foo', 'bar']) // { baz: 3 }
 ```
 
-## `uuid`
+#### `uuid`
 
 ```js
 utils.shared.uuid() // Will return unique id
 ```
 
-## `isLink`
+#### `isLink`
 
 ```js
 utils.shared.isLink("http://example.com") // true
@@ -161,7 +191,7 @@ utils.shared.isLink("https://examplecom") // false
 utils.shared.isLink("https:/example.com") // false
 ```
 
-## `youTubeLinkWithEmbed`
+#### `youTubeLinkWithEmbed`
 
 ```js
 utils.shared.youTubeLinkWithEmbed("videoId") // https://www.youtube.com/embed/${videoId}?si=MwpzP3N4aPMNGFri

@@ -3,7 +3,7 @@
   "private": false,
   "description": "Utils for JavaScript and TypeScript",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "./dist/index.js",
   "keywords": [],
   "author": "ZhulinskiiDanil",
