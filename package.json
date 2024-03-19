@@ -1,0 +1,10 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "format": "prettier --write './**/*.{js,jsx,ts,tsx,vue,css,scss,md,json}' --config ./.prettierrc"
+  },
+  "devDependencies": {
+    "prettier": "^3.2.5"
+  }
+}

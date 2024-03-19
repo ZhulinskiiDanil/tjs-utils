@@ -1,1 +1,1 @@
-export * from './getRelativeDate'
+export * from './getRelativeDate';
