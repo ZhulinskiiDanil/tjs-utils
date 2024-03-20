@@ -164,7 +164,7 @@ utils.object.excludeFields({
   ]
 }, 'foo')
 
-// Alose you can use that method like this
+// Also you can use that method like this
 utils.object.excludeFields({
   foo: 1, bar: 2, baz: 3
 }, 'foo', 'bar') // { baz: 3 }
