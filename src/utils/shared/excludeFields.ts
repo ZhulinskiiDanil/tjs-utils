@@ -16,8 +16,8 @@ type FlattenKeys<T> = T extends object
 
 // =========== CODE ===========
 
-export function excludeFields<T = any>(
-  value: Exclude<T, Function>,
+export function excludeFields<T extends Record<string, unknown>>(
+  value: T,
   ...args:
     | FlattenKeys<typeof value>[]
     | [FlattenKeys<typeof value>[]]
