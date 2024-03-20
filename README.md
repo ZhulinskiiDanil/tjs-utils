@@ -3,7 +3,7 @@
 - [Links](#links)
   - [Installing](#installing)
     - [Package manager](#package-manager)
-  - [browser](#browser)
+  - [browser.url](#browserurl)
       - [`getLastURLSegment`](#getlasturlsegment)
   - [date](#date)
       - [`getDateTimeFormat`](#getdatetimeformat)
@@ -50,7 +50,7 @@ Using pnpm:
 $ pnpm add tjs-utils
 ```
 
-## browser
+## browser.url
 
 #### `getLastURLSegment`
 
