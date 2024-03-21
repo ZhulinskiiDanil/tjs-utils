@@ -1,8 +1,14 @@
+# tjs-utils
+
+[GitHub](https://github.com/ZhulinskiiDanil/tjs-utils)
+
 # Links
 
+- [tjs-utils](#tjs-utils)
 - [Links](#links)
   - [Installing](#installing)
     - [Package manager](#package-manager)
+- [Methods](#methods)
   - [browser.url](#browserurl)
       - [`getLastURLSegment`](#getlasturlsegment)
   - [date](#date)
@@ -49,6 +55,8 @@ Using pnpm:
 ```bash
 $ pnpm add tjs-utils
 ```
+
+# Methods
 
 ## browser.url
 
